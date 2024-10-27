@@ -1,20 +1,20 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AutenticacionController;
+use App\Http\Controllers\PerfilController;
+use App\Http\Controllers\BusquedaController;
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('autenticacion.iniciar_sesion');
+})->name('iniciar_sesion');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/registro', [AutenticacionController::class, 'mostrarFormularioRegistro'])->name('registro');
+Route::post('/registro', [AutenticacionController::class, 'registrarUsuario']);
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::post('/iniciar_sesion', [AutenticacionController::class, 'iniciarSesion'])->name('iniciar_sesion.submit');
 
-require __DIR__.'/auth.php';
+Route::get('/buscar', [BusquedaController::class, 'index'])->name('buscar');
+Route::post('/buscar', [BusquedaController::class, 'buscar'])->name('buscar.submit');
+
+Route::get('/perfil', [PerfilController::class, 'mostrar'])->name('perfil');
