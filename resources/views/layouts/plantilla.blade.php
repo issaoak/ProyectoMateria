@@ -1,4 +1,4 @@
-<!-- resources/views/layouts/plantilla.blade.php -->
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

@@ -1,0 +1,14 @@
+
+.profile-icon {
+    font-size: 36px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
