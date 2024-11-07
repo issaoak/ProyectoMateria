@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,58 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('titulo')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="{{ asset('css/perfil.css') }}" rel="stylesheet"> 
-
+    <link href="{{ asset('css/perfil.css') }}" rel="stylesheet">
 
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
+            background-color: #e4c590;
         }
 
         .navbar {
             display: flex;
             align-items: center;
-            padding: 10px;
+            justify-content: space-between;
+            padding: 10px 40px; /* Añade margen interior a los lados */
             background-color: #ddd;
             border-bottom: 1px solid #ccc;
         }
 
-        .navbar img {
-            width: 24px;
-            height: 24px;
+        .navbar-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-left img {
+            width: 60px;
+            height: 60px;
             margin-right: 10px;
         }
 
-        .navbar input[type="text"] {
-            flex: 1;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            margin: 0 15px;
+        .welcome-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: black;
+            text-decoration: none;
         }
 
-        .cart-icon {
-            width: 24px;
-            height: 24px;
+        .navbar-right {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-right a {
+            margin-left: 15px;
+        }
+
+        .navbar-right img {
+            margin-left: 15px;
+        }
+
+        /* Contenedor principal con márgenes */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .search-bar {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .search-bar input {
+            width: 80%;
+            max-width: 500px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
         }
     </style>
 </head>
 <body>
-    
+
     <div class="navbar">
-        <a href="{{ route('inicio') }}">
-            <img src="{{ asset('images/home_icon.png') }}" alt="Inicio" class="home-icon"> 
-        </a>
-        <a href="{{ route('perfil') }}">
-            <img src="{{ asset('images/Perfil.jpg') }}" alt="Perfil">
-        </a>
-        <input type="text" placeholder="Buscar...">
-        <img src="{{ asset('images/Carrito.png') }}" alt="Carrito" class="cart-icon">
+        <div class="navbar-left">
+            <a href="{{ route('inicio') }}">
+                <img src="{{ asset('images/Logo.webp') }}" alt="Logo">
+            </a>
+            <p class="welcome-text">Tourist Without Maps</p>
+        </div>
+        <div class="navbar-right">
+    @if (Auth::check())
+        @if (Auth::user()->role === 'admin')
+            <a href="{{ route('admin.dashboard') }}">
+                <img src="{{ asset('images/Perfil.jpg') }}" alt="Perfil Admin" style="width: 60px; height: 60px;">
+            </a>
+        @else
+            <a href="{{ route('perfil.mostrar') }}">
+                <img src="{{ asset('images/Perfil.jpg') }}" alt="Perfil Usuario" style="width: 60px; height: 60px;">
+            </a>
+        @endif
+    @else
+        <a href="{{ route('iniciar_sesion') }}" class="btn btn-outline-dark" style="margin-left: 15px;">Iniciar Sesión / Registrarse</a>
+    @endif
+    <img src="{{ asset('images/Carrito.png') }}" alt="Carrito" class="cart-icon" style="width: 60px; height: 60px; margin-left: 15px;">
+</div>
+
     </div>
 
-    @yield('contenido')
+    <!-- Contenedor principal -->
+    <div class="main-container">
+        @yield('contenido')
+    </div>
 </body>
 </html>

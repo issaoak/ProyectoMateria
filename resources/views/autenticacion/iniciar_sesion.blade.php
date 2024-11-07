@@ -1,4 +1,3 @@
-
 @extends('layouts.plantilla')
 
 @section('titulo', 'Iniciar Sesión - Turista sin Maps')
@@ -12,7 +11,7 @@
         <input type="email" name="email" placeholder="Correo Electrónico" required>
         <label>Contraseña:</label>
         <input type="password" name="password" placeholder="Contraseña" required>
-        <button type="submit">Iniciar sesión</button>
+        <button type="submit" class="btn btn-primary">Iniciar sesión</button>
     </form>
     <a href="{{ route('registro') }}">¿Aún no tienes cuenta? Regístrate aquí</a>
 </div>
