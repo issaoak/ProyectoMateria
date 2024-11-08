@@ -32,24 +32,27 @@ class AutenticacionController extends Controller
     }
 
     public function iniciarSesion(Request $request)
-    {
-        $credenciales = $request->only('email', 'password');
-    
-        if (Auth::attempt($credenciales)) {
-            $usuario = Auth::user();
-    
-            // Depura el rol del usuario
-            \Log::info('Usuario autenticado: ' . $usuario->name . ', Rol: ' . $usuario->role);
-    
-            if ($usuario->role === 'admin') {
-                return redirect()->route('admin.dashboard'); // Redirige al panel de administración
-            } else {
-                return redirect()->route('perfil.mostrar'); // Redirige al perfil del usuario
-            }
+{
+    $email = $request->input('email');
+    $password = $request->input('password');
+
+    $user = User::where('email', $email)->first();
+
+    if ($user && Hash::check($password, $user->password)) {
+        Auth::login($user); // Autentica manualmente al usuario
+        \Log::info('Usuario autenticado manualmente: ' . $user->name . ', Rol: ' . $user->role);
+
+        if ($user->role === 'admin') {
+            return redirect()->route('admin.dashboard');
+        } else {
+            return redirect()->route('perfil.mostrar');
         }
-    
+    } else {
+        \Log::warning('Fallo en autenticación: Credenciales incorrectas');
         return back()->withErrors(['email' => 'Las credenciales no coinciden']);
     }
+}
+
     
 
    
@@ -78,7 +81,4 @@ class AutenticacionController extends Controller
     {
         return view('autenticacion.iniciar_sesion'); // Cambia 'autenticacion.iniciar_sesion' según la ubicación de tu vista
     }
-
-
- 
 }

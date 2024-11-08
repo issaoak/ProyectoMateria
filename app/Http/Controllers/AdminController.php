@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Vuelo;
+
 
 class AdminController extends Controller
 {
@@ -17,10 +19,12 @@ class AdminController extends Controller
         // Lógica para gestionar usuarios
     }
 
-    public function configuraciones()
-    {
-        // Lógica para configuraciones
+    public function vuelos(){
+        return view('admin.vuelos');
+        
     }
+    
+   
 
     public function verReportes()
     {

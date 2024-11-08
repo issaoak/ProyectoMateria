@@ -33,5 +33,5 @@ class BusquedaController extends Controller
         
     }
 
-    
+        
 }

@@ -5,7 +5,7 @@ class PerfilController extends Controller
 {
     public function mostrar()
     {
-        $usuario = Auth::user(); 
+        $usuario = Auth::user(); // Obtiene el usuario autenticado
         return view('perfil.mostrar', compact('usuario'));
     }
 }

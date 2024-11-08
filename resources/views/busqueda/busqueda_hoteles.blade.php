@@ -10,9 +10,9 @@
         <!-- Primer hotel -->
         <div class="col">
             <div class="card shadow-sm h-100">
-                <img src="{{ asset('images/hotel1.jpg') }}" class="card-img-top" alt="Hotel 1">
+                <img src="{{ asset('images/Hilton.jpeg') }}" class="card-img-top" alt="Hotel 1">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel @@@@@@@@@@</h5>
+                    <h5 class="card-title">Hotel Hilton</h5>
                     <p class="card-text">Dirección</p>
                     <p class="card-text"><strong>$400 la noche</strong></p>
                     <p class="card-text">Check in: 15:00</p>
@@ -27,9 +27,9 @@
         <!-- Segundo hotel -->
         <div class="col">
             <div class="card shadow-sm h-100">
-                <img src="{{ asset('images/hotel2.jpg') }}" class="card-img-top" alt="Hotel 2">
+                <img src="{{ asset('images/Fiestainn.jpeg') }}" class="card-img-top" alt="Hotel 2">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel @@@@@@@@@@</h5>
+                    <h5 class="card-title">Hotel Fiesta Inn</h5>
                     <p class="card-text">Dirección</p>
                     <p class="card-text"><strong>$400 la noche</strong></p>
                     <p class="card-text">Check in: 15:00</p>
@@ -44,9 +44,9 @@
         <!-- Tercer hotel -->
         <div class="col">
             <div class="card shadow-sm h-100">
-                <img src="{{ asset('images/hotel3.jpg') }}" class="card-img-top" alt="Hotel 3">
+                <img src="{{ asset('images/Expressinn.avif') }}" class="card-img-top" alt="Hotel 3">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel @@@@@@@@@@</h5>
+                    <h5 class="card-title">Hotel Express In</h5>
                     <p class="card-text">Dirección</p>
                     <p class="card-text"><strong>$400 la noche</strong></p>
                     <p class="card-text">Check in: 15:00</p>
@@ -61,9 +61,9 @@
         <!-- Cuarto hotel -->
         <div class="col">
             <div class="card shadow-sm h-100">
-                <img src="{{ asset('images/hotel4.jpg') }}" class="card-img-top" alt="Hotel 4">
+                <img src="{{ asset('images/Dumon.jpeg') }}" class="card-img-top" alt="Hotel 4">
                 <div class="card-body">
-                    <h5 class="card-title">Hotel @@@@@@@@@@</h5>
+                    <h5 class="card-title">Hotel Dumon</h5>
                     <p class="card-text">Dirección</p>
                     <p class="card-text"><strong>$400 la noche</strong></p>
                     <p class="card-text">Check in: 15:00</p>

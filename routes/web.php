@@ -5,6 +5,8 @@ use App\Http\Controllers\AutenticacionController;
 use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\BusquedaController;
 use App\Http\Controllers\AdminController;
+use Carbon\Carbon;
+
 
 
 // Ruta para la página de inicio como la predeterminada
@@ -65,23 +67,15 @@ Route::get('/confirpagohotel', [BusquedaController::class, 'confirpagohotel'])->
 
 //Ruta para escoger habitacion
 
-//Ruta para busqueda de vuelo
+//Ruta resultado busqueda de vuelo
+// routes/web.php
+Route::get('/admin/vuelos', [AdminController::class, 'vuelos'])->name('admin.vuelos');
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/usuarios', [AdminController::class, 'gestionarUsuarios'])->name('admin.usuarios');
-    Route::get('/admin/configuraciones', [AdminController::class, 'configuraciones'])->name('admin.configuraciones');
-    Route::get('/admin/reportes', [AdminController::class, 'verReportes'])->name('admin.reportes');
-});
+
+
 Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 Route::get('/admin/usuarios', [AdminController::class, 'gestionarUsuarios'])->name('admin.usuarios');
-
-
-
-
-
-
-
-
-
+Route::get('/vuelos', [AdminController::class, 'vuelos'])->name('vuelos.index');
+Route::get('/admin/hoteles', [AdminController::class, 'hoteles'])->name('admin.hoteles');
+Route::get('/admin/habitaciones', [AdminController::class, 'habitaciones'])->name('admin.habitaciones');
